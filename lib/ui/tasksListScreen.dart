@@ -26,6 +26,9 @@ class _TaskslistscreenState extends State<Taskslistscreen> {
   Future<void> fetchTasksLists() async {
     try {
       tasksList = await Baseclient().getTasksDataBySection(widget.projectId);
+      if(tasksList.isEmpty){
+        tasksList = await Baseclient().getTasksData(widget.projectId);
+      }
       // Using standard bullet point with proper spacing
       tasksString = tasksList.map((task) => '• ${task.content}').join('\n\n');
     } catch (e) {
