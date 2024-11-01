@@ -10,6 +10,7 @@ import 'package:todoist_bullatize/ui/ProjectsListScreen.dart';
 
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesHelper.init();
   runApp(const MyApp());
 }
